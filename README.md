@@ -4,6 +4,7 @@ The model is trained using transfer learning with MobileNetV2 and deployed using
 
 Steps: 
 1. Download all files (or the zip) and ensure it's in this structure in your IDE
+   
 *Project Folder*/
 │
 ├── data/
@@ -20,9 +21,10 @@ Steps:
 ├── train.py
 ├── requirements.txt
 └── README.md
-2. Install dependencies if necessary in Terminal: pip install -r requirements.txt
-3. Run train.py to generate the fish_classifier.keras file (this may take several minutes)
-4. Start the Flask server: python app.py
-5. Paste either the address given by the program, or this line, into your browser: http://127.0.0.1:5000
-6. There will be a UI prompting the upload of an image. Upload your image.
-7. The program will return a prediction and its confidence estimate.
+
+3. Install dependencies if necessary in Terminal: pip install -r requirements.txt
+4. Run train.py to generate the fish_classifier.keras file (this may take several minutes)
+5. Start the Flask server: python app.py
+6. Paste either the address given by the program, or this line, into your browser: http://127.0.0.1:5000
+7. There will be a UI prompting the upload of an image. Upload your image.
+8. The program will return a prediction and its confidence estimate.
