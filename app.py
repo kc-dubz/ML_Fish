@@ -23,11 +23,36 @@ print(">>> model loaded successfully")
 
 #Class Names
 class_names = [
-    "Salmon",
-    "Tuna",
-    "Trout",
-    "Tilapia",
-    "Catfish"
+    'Abramis brama',
+    'Acipenseridae',
+    'Anguilla anguilla',
+    'Aspius aspius',
+    'Barbus barbus',
+    'Blicca bjoerkna',
+    'Carassius carassius',
+    'Carassius gibelio',
+    'Ctenopharyngodon idella',
+    'Cyprinus carpio',
+    'Esox lucius',
+    'Gasterosteus aculeatus',
+    'Gobio gobio',
+    'Gymnocephalus cernuus',
+    'Lepomis gibbosus',
+    'Leuciscus cephalus',
+    'Leuciscus idus',
+    'Leuciscus leuciscus',
+    'Neogobius fluviatilis',
+    'Neogobius kessleri',
+    'Neogobius melanostomus',
+    'Perca fluviatilis',
+    'Rhodeus amarus',
+    'Rutilus rutilus',
+    'Salmo trutta subsp. fario',
+    'Sander lucioperca',
+    'Scardinius erythrophthalmus',
+    'Silurus glanis',
+    'Tinca tinca',
+    'Vimba vimba'
 ]
 
 #Image Preprocessing
@@ -37,7 +62,6 @@ def prepare_image(img_path):
     img = image.load_img(img_path, target_size=(IMG_SIZE, IMG_SIZE))
     img_array = image.img_to_array(img)
     img_array = np.expand_dims(img_array, axis=0)
-    img_array = img_array / 255.0
     return img_array
 
 
@@ -61,12 +85,17 @@ def index():
 
         # Predict
         img = prepare_image(upload_path)
-        preds = model.predict(img)
+        preds = model.predict(img)[0]
 
-        predicted_class = class_names[np.argmax(preds)]
-        confidence = round(np.max(preds) * 100, 2)
+        top_3_idx = preds.argsort()[-3:][::-1]
 
-        prediction = f"{predicted_class} ({confidence}%)"
+        prediction = []
+        for i in top_3_idx:
+            prediction.append(
+                f"{class_names[i]} ({preds[i] * 100:.2f}%)"
+            )
+
+        prediction = "\n".join(prediction)
 
         return render_template(
             "index.html",
