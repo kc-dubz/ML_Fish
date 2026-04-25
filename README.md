@@ -6,7 +6,6 @@ Steps:
 1. Download all files (or the zip) and ensure it's in this structure in your IDE
    
 *Project Folder*/
-
 │
 
 ├── data/
@@ -29,13 +28,25 @@ Steps:
 
 │
 
-├── app.py
+├── src/
 
-├── train.py
+│   ├── utils.py
+
+│   ├── split_data.py
+
+│   ├── predict.py
+
+│   
+
+│
+
+├── app.py              
+
+├── train.py        (generates fish_classifier.keras)  
 
 ├── requirements.txt
 
-└── README.md
+├── README.md
 
 3. Install dependencies if necessary in Terminal: pip install -r requirements.txt
 4. Run train.py to generate the fish_classifier.keras file (this may take several minutes)
