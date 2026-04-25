@@ -6,20 +6,35 @@ Steps:
 1. Download all files (or the zip) and ensure it's in this structure in your IDE
    
 *Project Folder*/
+
 │
+
 ├── data/
+
 │   ├── train/
+
 │   └── val/
+
 │
+
 ├── models/
+
 │   └── fish_classifier.keras (Not downloadable)
+
 │
+
 ├── templates/
+
 │   └── index.html
+
 │
+
 ├── app.py
+
 ├── train.py
+
 ├── requirements.txt
+
 └── README.md
 
 3. Install dependencies if necessary in Terminal: pip install -r requirements.txt
