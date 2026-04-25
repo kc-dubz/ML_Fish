@@ -1,0 +1,1 @@
+model resnet18 final scores: Epoch 10 | Loss: 36.1898 | Val Acc: 0.7548
